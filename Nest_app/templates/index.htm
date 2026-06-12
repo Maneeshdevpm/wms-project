@@ -1,0 +1,20 @@
+<h1>WMS Dashboard</h1>
+
+<div>
+    <h3>Total Products: {{ total_products }}</h3>
+    <h3>Total Stock: {{ total_stock }}</h3>
+</div>
+
+<hr>
+
+<h2>Products</h2>
+{% for p in products %}
+    <p>{{ p.name }} | Stock: {{ p.stock }}</p>
+{% endfor %}
+
+<hr>
+
+<h2>Recent Transactions</h2>
+{% for t in recent_transactions %}
+    <p>{{ t.product.name }} - {{ t.transaction_type }} - {{ t.quantity }}</p>
+{% endfor %}

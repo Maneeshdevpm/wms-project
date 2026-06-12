@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d') no-repeat center;
+            background-size: cover;
+            font-family: Arial;
+        }
+
+        .box {
+            background: rgba(0,0,0,0.6);
+            padding: 30px;
+            border-radius: 16px;
+            color: white;
+            width: 300px;
+            backdrop-filter: blur(10px);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #3b82f6;
+            border: none;
+            color: white;
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>🔐 WMS Login</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input name="username" placeholder="Username">
+        <input name="password" type="password" placeholder="Password">
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

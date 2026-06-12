@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>📊 Dashboard</h2>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="glass">
+            <h3>{{ total_products }}</h3>
+            <p>Total Products</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="glass">
+            <h3>{{ total_stock }}</h3>
+            <p>Total Stock</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="glass">
+            <h3>{{ low_stock|length }}</h3>
+            <p>Low Stock</p>
+        </div>
+    </div>
+
+</div>
+
+<br>
+
+<div class="glass">
+    <h4>⚠ Low Stock</h4>
+
+    {% for p in low_stock %}
+        <p>🔴 {{ p.name }} - {{ p.quantity }}</p>
+    {% empty %}
+        <p>All stock healthy 🟢</p>
+    {% endfor %}
+</div>
+
+<br>
+
+<div class="glass">
+    <h4>📦 Products</h4>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+
+        {% for p in products %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.category }}</td>
+            <td>{{ p.quantity }}</td>
+            <td>{{ p.price }}</td>
+            <td>
+                <a class="btnx edit" href="/edit/{{ p.id }}/">Edit</a>
+                <a class="btnx delete" href="/delete/{{ p.id }}/">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card card-box p-4" style="max-width:500px;">
+
+    <h3>📦 Stock IN / OUT</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>Product</label>
+            <select name="product" class="form-control">
+                {% for p in products %}
+                    <option value="{{ p.id }}">{{ p.name }} ({{ p.quantity }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Type</label>
+            <select name="transaction_type" class="form-control">
+                <option value="IN">IN</option>
+                <option value="OUT">OUT</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Quantity</label>
+            <input type="number" name="quantity" class="form-control">
+        </div>
+
+        <button class="btn btn-success w-100">Submit</button>
+    </form>
+
+</div>
+
+{% endblock %}

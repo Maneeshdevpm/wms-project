@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>📊 Category Report</h2>
+
+<div class="card card-box p-3">
+
+<table class="table">
+    <tr>
+        <th>Category</th>
+        <th>Products Count</th>
+    </tr>
+
+    {% for c in categories %}
+    <tr>
+        <td>{{ c.category }}</td>
+        <td>{{ c.product_count }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+
+{% endblock %}

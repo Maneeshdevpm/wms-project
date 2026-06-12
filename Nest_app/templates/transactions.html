@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>🧾 Transactions</h3>
+
+<div class="card card-box p-3">
+
+<table class="table">
+    <tr>
+        <th>Product</th>
+        <th>Type</th>
+        <th>Qty</th>
+        <th>Date</th>
+    </tr>
+
+    {% for t in transactions %}
+    <tr>
+        <td>{{ t.product.name }}</td>
+        <td>{{ t.transaction_type }}</td>
+        <td>{{ t.quantity }}</td>
+        <td>{{ t.date }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</div>
+
+{% endblock %}
