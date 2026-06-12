@@ -135,9 +135,13 @@ def login_user(request):
             login(request, user)
             return redirect('index')
 
+        return render(request, 'login.html', {'error': 'Invalid credentials'})
+
     return render(request, 'login.html')
 
 
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+    
